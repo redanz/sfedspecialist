@@ -285,7 +285,9 @@
       </p>
 
       <div class="grid two-col contact-grid">
-        <form class="contact-form">
+        <form class="contact-form" action="https://formspree.io/f/xyzryvww" method="POST">
+          <input type="hidden" name="_replyto" value="">
+          <input type="hidden" name="_subject" value="New Contact Form Submission from SF Ed Specialist">
           <label>
             Your Name
             <input type="text" name="name" placeholder="Parent / caregiver name" required>
@@ -302,7 +304,6 @@
             How can I help?
             <textarea name="message" rows="4" placeholder="Briefly describe your child’s needs or concerns"></textarea>
           </label>
-          <!-- This won't actually send without a backend; you can hook it up later -->
           <button type="submit" class="btn btn-full-width">Submit</button>
         </form>
 
