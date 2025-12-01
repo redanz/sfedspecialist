@@ -16,7 +16,7 @@ body {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Adjust this value based on your header height */
+  scroll-padding-top: 64px; /* closer to actual header height */
 }
 
 /* Layout helpers */
@@ -39,11 +39,6 @@ html {
   margin-bottom: 0.75rem;
 }
 
-.section-inner {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
 .section h2 {
   font-size: 2rem;
   margin-bottom: 0.75rem;
@@ -53,6 +48,11 @@ html {
   font-size: 1.05rem;
   max-width: 640px;
   margin-bottom: 2.5rem;
+}
+
+/* Let the My Approach intro paragraph run wider */
+#about .section-lead {
+  max-width: none;      /* or a larger cap, e.g. 800px */
 }
 
 /* Let the testimonials intro paragraph run wider */
@@ -582,11 +582,6 @@ a:hover {
   /* Adjust hero image on mobile */
   .hero-image img {
     max-width: 100%;
-  }
-
-  /* Reduce carousel padding */
-  .carousel-slide {
-    padding: 1.5rem;
   }
   
   /* Reduce carousel padding */
