@@ -665,6 +665,12 @@ a:hover {
     width: 8px;
     height: 8px;
   }
+
+  /* Center hero image block on mobile */
+  div.hero-image {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .back-to-top {
