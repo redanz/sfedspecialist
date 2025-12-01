@@ -53,36 +53,32 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Contact form handling
-document.addEventListener("DOMContentLoaded", () => {
-  // ... existing carousel code ...
-  
-  const contactForm = document.querySelector(".contact-form");
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      // Update _replyto field with the email from the form
-      const emailInput = contactForm.querySelector('input[name="email"]');
-      const replyToField = contactForm.querySelector('input[name="_replyto"]');
+const contactForm = document.querySelector(".contact-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    // Update _replyto field with the email from the form
+    const emailInput = contactForm.querySelector('input[name="email"]');
+    const replyToField = contactForm.querySelector('input[name="_replyto"]');
+    
+    if (emailInput && replyToField && emailInput.value) {
+      replyToField.value = emailInput.value;
+    }
+    
+    // Don't prevent default - let Formspree handle it
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    
+    if (submitBtn) {  // Add this check
+      const originalText = submitBtn.textContent;
       
-      if (emailInput && replyToField && emailInput.value) {
-        replyToField.value = emailInput.value;
-      }
+      // Show loading state
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
       
-      // Don't prevent default - let Formspree handle it
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      
-      if (submitBtn) {
-        const originalText = submitBtn.textContent;
-        
-        // Show loading state
-        submitBtn.textContent = "Sending...";
-        submitBtn.disabled = true;
-        
-        // Reset button after a delay (Formspree will redirect/refresh)
-        setTimeout(() => {
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-        }, 3000);
-      }
-    });
-  }
-});
+      // Reset button after a delay (Formspree will redirect/refresh)
+      setTimeout(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }, 3000);
+    }
+  });
+}
