@@ -10,7 +10,7 @@ body {
   font-family: "Source Sans Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   color: #222;
-  background-color: #faf7f3;
+  background-color: #f9faf3;
   line-height: 1.6;
 }
 
@@ -127,8 +127,8 @@ html {
 .hero-kicker {
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  font-size: 0.75rem;
-  color: #8b6b4a;
+  font-size: 0.8rem;
+  color: #da8f66;
   margin-bottom: 0.75rem;
 }
 
@@ -219,8 +219,8 @@ html {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #3594cf;
-  color: #fff;
+  background-color: #DCAE96;
+  color: #2c2b2b;
   padding: 0.7rem 1.5rem;
   border-radius: 999px;
   border: none;
@@ -231,8 +231,8 @@ html {
 }
 
 .btn:hover {
-  background-color: #DCAE96;
-  color: #fff;
+  background-color: #9bd2b6;
+  color: #2c2b2b;
   transform: translateY(-1px);
 }
 
