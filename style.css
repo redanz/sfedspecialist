@@ -21,11 +21,22 @@ html {
 
 /* Layout helpers */
 .section {
-  padding: 5rem 1.5rem;
+  padding: 4rem 1.5rem; /* Reduced from 5rem (80px) to 4rem (64px) */
 }
 
 .section-alt {
   background-color: #fffdf8;
+}
+
+.section-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
 }
 
 .section-inner {
@@ -121,7 +132,12 @@ html {
   display: grid;
   gap: 3rem;
   grid-template-columns: minmax(0, 3fr) minmax(240px, 2fr);
-  align-items: center;
+  align-items: flex-end;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-kicker {
@@ -135,7 +151,7 @@ html {
 .hero h1 {
   font-size: 2.4rem;
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .hero-subtitle {
@@ -148,6 +164,7 @@ html {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  margin-top: auto;
 }
 
 .hero-secondary-link {
@@ -248,11 +265,17 @@ html {
 /* Cards */
 .card {
   border-radius: 18px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 1.75rem;
   background-color: #f9faf3;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 .card h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -494,7 +517,7 @@ a:hover {
 @media (max-width: 768px) {
   /* Reduce section padding on mobile */
   .section {
-    padding: 3rem 1rem;
+    padding: 3rem 1rem; /* This is already correct */
   }
 
   .hero {
