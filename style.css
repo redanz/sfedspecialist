@@ -524,3 +524,96 @@ a:hover {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.footer-links {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: #7d5a3a;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Resources page styles */
+.resources-content {
+  max-width: 800px;
+}
+
+.resources-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.resources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resource-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.resource-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.resource-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.resource-link:hover {
+  color: #7d5a3a;
+}
+
+.resource-url {
+  font-weight: 600;
+  color: #3594cf;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.resource-link:hover .resource-url {
+  color: #7d5a3a;
+  text-decoration: underline;
+}
+
+.resource-name {
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 0.1rem;
+}
+
+.resources-section-header {
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.resources-section-header strong {
+  font-weight: 600;
+}
+
+.resources-list-plain .resource-item-plain {
+  padding-bottom: 1rem;
+}
+
+.resource-item-plain .resource-name {
+  font-size: 1rem;
+  color: #222;
+  font-weight: 400;
+}
