@@ -219,8 +219,8 @@ html {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #DCAE96;
-  color: #2c2b2b;
+  background-color: #d7a588;
+  color: #fff;
   padding: 0.7rem 1.5rem;
   border-radius: 999px;
   border: none;
@@ -232,7 +232,7 @@ html {
 
 .btn:hover {
   background-color: #9bd2b6;
-  color: #2c2b2b;
+  color: #514e4e;
   transform: translateY(-1px);
 }
 
