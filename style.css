@@ -55,6 +55,12 @@ html {
   margin-bottom: 2.5rem;
 }
 
+/* Let the testimonials intro paragraph run wider */
+#testimonials .section-lead {
+  max-width: none;      /* or set a larger cap like 800px if you prefer */
+  margin-bottom: 2rem;  /* keep some space above the carousel */
+}
+
 /* Grid utilities */
 .grid {
   display: grid;
