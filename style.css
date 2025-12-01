@@ -79,7 +79,7 @@ html {
 .nav-logo {
   font-weight: 600;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
+  text-transform: none;
   font-size: 0.9rem;
   text-decoration: none;  /* Remove underline */
   color: inherit;        /* Use default text color */
@@ -250,7 +250,7 @@ html {
   border-radius: 18px;
   border: 1px solid rgba(0, 0, 0, 0.06);
   padding: 1.75rem;
-  background-color: #fff;
+  background-color: #f9faf3;
 }
 
 .card h3 {
@@ -267,15 +267,31 @@ html {
 /* Pill cards */
 .pill-card {
   border-radius: 999px;
-  padding: 1.5rem 2.25rem;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 1.75rem 2.5rem;
+  background-color: #fef6ed;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.pill-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .pill-card h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.pill-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* Quotes / Testimonials */
