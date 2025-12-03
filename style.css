@@ -305,20 +305,60 @@ html {
   font-size: 0.95rem;
 }
 
-/* Pill cards */
+/* Sticky note style for Who I Work With */
 .pill-card {
-  border-radius: 999px;
-  padding: 1.75rem 2.5rem;
-  background-color: #fef6ed;
+  position: relative;
+  max-width: 260px;
+  padding: 1.5rem 1.75rem;
+  background-color: #fffbe6; /* sticky-note yellow */
+  border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  text-align: left;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  transform: rotate(-1.5deg);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pill-card:nth-child(2) {
+  transform: rotate(1.5deg);
+}
+
+.pill-card:nth-child(3) {
+  transform: rotate(-0.5deg);
 }
 
 .pill-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px) rotate(0deg);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+}
+
+/* little “tape” at the top */
+.pill-card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 60px;
+  height: 18px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+/* keep existing typography */
+.pill-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.pill-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .pill-card h3 {
@@ -340,8 +380,8 @@ html {
   margin: 0;
   padding: 1.75rem;
   border-radius: 18px;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: rgba(255, 255, 255, 0.6);  /* more transparent */
+  border: 1px solid rgba(0, 0, 0, 0.04);
   font-style: italic;
   position: relative;
 }
@@ -373,11 +413,9 @@ html {
   overflow: hidden;
   border-radius: 18px;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  background-color: #fff;
+  background-color: transparent;        /* no white layer here */
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
   min-height: 300px;
-  display: flex;
-  align-items: center;
 }
 
 .carousel-track {
@@ -801,4 +839,139 @@ a:hover {
   font-size: 1rem;
   color: #222;
   font-weight: 400;
+}
+
+/* My Approach background */
+#about {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image layer */
+#about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(249, 250, 243, 0.75), rgba(249, 250, 243, 0.75)),
+    url("assets/images/paper-background.jpg");
+  background-size: cover;
+  background-position: center;   /* adjust to 'top center' or 'bottom center' if needed */
+  opacity: 1;                    /* lower to 0.7–0.9 if you want it more subtle */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure content sits above the background layer */
+#about .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Services background */
+#services {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image layer */
+#services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(249, 250, 243, 0.6), rgba(249, 250, 243, 0.6)),
+    url("assets/images/colored-pencils.jpg");
+  background-size: cover;
+  background-position: top center; /* show pencil tips at the top */
+  opacity: 0.5;                      /* or 0.7–0.9 for more subtle */
+  pointer-events: none;
+  z-index: 0;                      /* in front of section background */
+}
+
+/* Ensure content sits above the background layer */
+#services .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Who I Work With background */
+#specialties {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image layer */
+#specialties::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(249, 250, 243, 0.75), rgba(249, 250, 243, 0.75)),
+    url("assets/images/paper-background.jpg");
+  background-size: cover;
+  background-position: center;   /* adjust to top/center/bottom as needed */
+  opacity: 1;                    /* tweak 0.6–1 for strength */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure content sits above the background layer */
+#specialties .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Testimonials background */
+#testimonials {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image layer */
+#testimonials::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(249, 250, 243, 0.8), rgba(249, 250, 243, 0.8)),
+    url("assets/images/notebook-on-table.jpg");
+  background-size: cover;
+  background-position: center;  /* change to top/bottom if you prefer */
+  opacity: 1;                   /* use 0.6–0.9 for more subtle */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure testimonials content sits above the background layer */
+#testimonials .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* FAQ background */
+#faq {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image layer */
+#faq::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(249, 250, 243, 0.8), rgba(249, 250, 243, 0.8)),
+    url("assets/images/alphabets.jpg");
+  background-size: cover;
+  background-position: center;  /* adjust to top/center/bottom as needed */
+  opacity: 1;                   /* lower to 0.6–0.9 if you want it more subtle */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure FAQ content sits above the background layer */
+#faq .section-inner {
+  position: relative;
+  z-index: 1;
 }
