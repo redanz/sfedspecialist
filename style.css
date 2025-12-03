@@ -968,7 +968,7 @@ a:hover {
   inset: 0;
   background-image:
     linear-gradient(rgba(249, 250, 243, 0.8), rgba(249, 250, 243, 0.8)),
-    url("assets/images/alphabets.jpg");
+    url("assets/images/abc.jpg");
   background-size: cover;
   background-position: center;  /* adjust to top/center/bottom as needed */
   opacity: 1;                   /* lower to 0.6–0.9 if you want it more subtle */
