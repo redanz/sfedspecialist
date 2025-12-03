@@ -48,6 +48,46 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "ArrowLeft") handlePrev();
     if (e.key === "ArrowRight") handleNext();
   });
+    // Swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let isDragging = false;
+  
+    const carouselWindow = carousel.querySelector(".carousel-window");
+    if (carouselWindow) {
+      carouselWindow.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+        isDragging = true;
+      }, { passive: true });
+  
+      carouselWindow.addEventListener("touchmove", (e) => {
+        if (isDragging) {
+          touchEndX = e.touches[0].clientX;
+        }
+      }, { passive: true });
+  
+      carouselWindow.addEventListener("touchend", (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+  
+        const swipeThreshold = 50; // Minimum distance for a swipe
+        const diff = touchStartX - touchEndX;
+  
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            // Swipe left - go to next
+            handleNext();
+          } else {
+            // Swipe right - go to previous
+            handlePrev();
+          }
+        }
+  
+        // Reset
+        touchStartX = 0;
+        touchEndX = 0;
+      });
+    }
 
   goTo(0);
 });
