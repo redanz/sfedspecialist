@@ -56,6 +56,11 @@ html {
   margin-bottom: 0.75rem;
 }
 
+/* Make FAQ heading light over dark background */
+#faq h2 {
+  color: #fdfbf7;  /* off‑white; use #fff for pure white if you prefer */
+}
+
 .section-lead {
   font-size: 1.05rem;
   max-width: 640px;
@@ -964,12 +969,11 @@ a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(249, 250, 243, 0.8), rgba(249, 250, 243, 0.8)),
-    url("assets/images/abc.jpg");
-  background-size: cover;
-  background-position: center;  /* adjust to top/center/bottom as needed */
-  opacity: 1;                   /* lower to 0.6–0.9 if you want it more subtle */
+  background-image: url("assets/images/blackboard.jpg");
+  background-size: 100% 100%;   /* stretch to fill width & height */
+  background-repeat: no-repeat;
+  background-position: center;  /* position doesn't matter much when stretched */
+  opacity: 1;
   pointer-events: none;
   z-index: 0;
 }
