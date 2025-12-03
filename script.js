@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       },
       {
-        threshold: 0.15,            // fire when ~15% visible
+        threshold: 0.15,             // fire when ~15% visible
       }
     );
 
