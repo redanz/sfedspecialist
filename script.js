@@ -25,6 +25,26 @@ document.addEventListener("DOMContentLoaded", () => {
     dot.setAttribute("aria-label", `Go to testimonial ${idx + 1}`);
     dot.addEventListener("click", () => goTo(idx));
     dotsContainer.appendChild(dot);
+
+  // Scroll reveal for elements with .reveal
+  const revealEls = document.querySelectorAll(".reveal");
+  if (revealEls.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target); // animate only once
+          }
+        });
+      },
+      {
+        threshold: 0.15,            // fire when ~15% visible
+      }
+    );
+
+    revealEls.forEach((el) => observer.observe(el));
+  }
   });
 
   const dots = Array.from(dotsContainer.querySelectorAll(".carousel-dot"));
