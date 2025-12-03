@@ -786,14 +786,12 @@ a:hover {
 
 .resource-item {
   margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 0; /* or 0.75rem if you still want a bit of spacing */
+  border-bottom: none;
 }
 
 .resource-item:last-child {
-  border-bottom: none;
   margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 .resource-link {
@@ -980,4 +978,14 @@ a:hover {
 #faq .section-inner {
   position: relative;
   z-index: 1;
+}
+
+/* Resources page paper background */
+.resources-body {
+  background-image:
+    linear-gradient(rgba(249, 250, 243, 0.8), rgba(249, 250, 243, 0.8)),
+    url("assets/images/paper-background.jpg");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
 }
