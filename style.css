@@ -787,17 +787,9 @@ a:hover {
     transform: translateY(-1px);
   }
 
-  /* FAQ background - extend to full width on mobile like desktop */
-  #faq {
-    position: relative;
-  }
-  
+  /* FAQ background – show the entire chalk board on mobile */
   #faq::before {
-    left: 0;
-    right: 0;
-    width: 100vw; /* Full viewport width */
-    margin-left: calc(-1 * 1rem); /* Offset section padding */
-    background-size: 100vw auto; /* Use viewport width, maintain aspect ratio */
+    background-size: 100% auto;     /* scale to full width */
     background-position: bottom center;
   }
 
