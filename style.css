@@ -787,7 +787,19 @@ a:hover {
     transform: translateY(-1px);
   }
 
+  /* FAQ background - extend to full width on mobile like desktop */
+  #faq {
+    position: relative;
+  }
   
+  #faq::before {
+    left: 0;
+    right: 0;
+    width: 100vw; /* Full viewport width */
+    margin-left: calc(-1 * 1rem); /* Offset section padding */
+    background-size: 100vw auto; /* Use viewport width, maintain aspect ratio */
+    background-position: bottom center;
+  }
 
   /* Reduce card padding on mobile */
   .card {
@@ -1103,9 +1115,9 @@ a:hover {
   position: absolute;
   inset: 0;
   background-image: url("assets/images/blackboard.jpg");
-  background-size: 100% 100%;   /* stretch to fill width & height */
+  background-size: cover; /* Change from 100% 100% */
   background-repeat: no-repeat;
-  background-position: center;  /* position doesn't matter much when stretched */
+  background-position: bottom center; /* Show bottom with chalk */
   opacity: 1;
   pointer-events: none;
   z-index: 0;
