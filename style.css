@@ -504,7 +504,7 @@ html {
   justify-content: center;
   position: relative; /* Add this */
   backface-visibility: hidden; /* Add this - prevents flickering */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Add this - page depth */
+  box-shadow: none;
   transform-origin: center center; /* Add this */
 }
 
@@ -845,10 +845,22 @@ a:hover {
     margin-top: 0.75rem;
   }
 
-  /* Adjust carousel window for mobile */
+  /* Turn off per-slide shadow + page-edge effect on mobile */
   .carousel-window {
-    min-height: auto;
-    border-radius: 12px;
+    perspective: none;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); /* keep a single aligned shadow */
+  }
+
+  .carousel-track {
+    transform-style: flat;
+  }
+
+  .carousel-slide {
+    box-shadow: none;
+  }
+
+  .carousel-slide::before {
+    display: none;
   }
 
   /* Reduce carousel controls size on mobile */
