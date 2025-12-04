@@ -467,17 +467,20 @@ html {
   overflow: hidden;
   border-radius: 18px;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  background-color: transparent;        /* no white layer here */
+  background-color: transparent;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
   min-height: 300px;
+  perspective: 1500px; /* Add this - 3D perspective */
+  position: relative; /* Add this */
 }
 
 .carousel-track {
   display: flex;
-  transition: transform 0.35s ease;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); /* Update timing */
   align-items: center;
   height: 100%;
   width: 100%;
+  transform-style: preserve-3d; /* Add this - enables 3D */
 }
 
 .carousel-slide {
@@ -488,6 +491,32 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative; /* Add this */
+  backface-visibility: hidden; /* Add this - prevents flickering */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Add this - page depth */
+  transform-origin: center center; /* Add this */
+}
+
+/* Add depth and shadow to create page effect */
+.carousel-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.1) 0%,
+    transparent 2%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-slide:not(:first-child)::before {
+  opacity: 1;
 }
 
 .carousel-controls {
