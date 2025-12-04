@@ -4,6 +4,46 @@ document.addEventListener("DOMContentLoaded", () => {
     year.textContent = new Date().getFullYear();
   }
 
+  const sectionLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const sections = Array.from(sectionLinks)
+    .map((link) => {
+      const id = link.getAttribute("href");
+      return id ? document.querySelector(id) : null;
+    })
+    .filter(Boolean);
+
+  if (sections.length && sectionLinks.length) {
+    const setActiveLink = (activeId) => {
+      sectionLinks.forEach((link) => {
+        const href = link.getAttribute("href") || "";
+        const targetId = href.startsWith("#") ? href.slice(1) : null;
+        link.classList.toggle("is-active", targetId === activeId);
+      });
+    };
+
+    // Ensure something is active on initial load (usually "home")
+    if (sections[0]) {
+      setActiveLink(sections[0].id);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.target.id) {
+            setActiveLink(entry.target.id);
+          }
+        });
+      },
+      {
+        // Treat the middle of the viewport as "current section"
+        rootMargin: "-50% 0px -50% 0px",
+        threshold: 0.1,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
   const carousel = document.querySelector(".testimonial-carousel");
   if (!carousel) return;
 
